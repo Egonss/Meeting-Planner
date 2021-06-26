@@ -21,4 +21,3 @@ class RoomViewSet(viewsets.ModelViewSet):
         if search:
             qs = qs.filter(nume__icontains=search)
         return qs
-# incercari minunate de git
