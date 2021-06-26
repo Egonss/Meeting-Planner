@@ -6,3 +6,4 @@ admin.site.register(Person)
 admin.site.register(Room)
 
 # Register your models here.
+# models
