@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+    cache:
+        image: memcached
+    db:
+        build: .
+        container_name: db
+        env_file: .env
+    console:
+        build: .
+        env_file: .env
+        volumes:
+            - .:/meeting_planner
+        ports:
+            - 8000:8000
+        command: python manage.py runserver 0.0.0.0:8000
+        depends_on: 
+            - db
+            - cache
+        links: 
+            - db
+            - cache
